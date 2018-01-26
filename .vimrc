@@ -2,8 +2,10 @@ set nocompatible        " Better safe than sorry
 
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'   " Inline git diff
-  Plug 'junegunn/vim-easy-align'  " Text alignment
   Plug 'idanarye/vim-merginal'    " git branching goodness
+  Plug 'junegunn/fzf', { 'dir': '~/.dotfiles/.vim/plugin/fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/vim-easy-align'  " Text alignment
   Plug 'scrooloose/nerdtree'      " Better file explorer
   "  Plug 'scrooloose/syntastic'     " Syntax checker
   "Plug 'tpope/vim-bundler'        " Bundler goodness
@@ -15,7 +17,6 @@ call plug#begin('~/.vim/plugged')
   "Plug 'tpope/vim-vinegar'        " Improve netrw
   Plug 'vim-airline/vim-airline'  " Statusline improvement
   Plug 'vim-ruby/vim-ruby'        " Ruby goodness
-  Plug 'wincent/command-t'        " Quick file hopping
 call plug#end()
 
 let mapleader=","
@@ -53,7 +54,6 @@ set autoindent
 map <leader>r :!ruby %<cr>    " Run scripts easily
 
 " Buffers **********************************************************************
-set hidden                    " Stop Command-T from splitting existing buffers
 " Shortcuts to go to next buffer, previous buffer, and delete a buffer
 nmap <tab> :bnext<CR>
 nmap <leader><tab> :bprevious<CR>
@@ -131,17 +131,14 @@ nmap <silent> <unique> <leader>m :Merginal<cr>
 "  au BufNewFile,BufRead .git/index setlocal nolist
 "augroup END
 
-" Command-T ********************************************************************
-" Reload cache and open file window
-nnoremap t :exec 'CommandTFlush' <Bar> CommandT<cr>
-
-" Ignore folders
-let g:CommandTWildIgnore  = &wildignore
-let g:CommandTWildIgnore .= ',.DS_Store'
-let g:CommandTWildIgnore .= ',bower_components'
-let g:CommandTWildIgnore .= ',log'
-let g:CommandTWildIgnore .= ',node_modules'
-let g:CommandTWildIgnore .= ',cache'
+" FZF **************************************************************************
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "!{.DS_Store,.git,bower_components,cache,log,node_modules,tags,vendor}/*"
+  \ -g "!tags" '
+  "\ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+command! -bang -nargs=* FindWithin call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+nnoremap t :exec 'FZF'<cr>
 
 " Syntastic ****************************************************************
 let g:syntastic_check_on_wq = 0
