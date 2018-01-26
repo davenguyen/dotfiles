@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'  " Text alignment
   Plug 'scrooloose/nerdtree'      " Better file explorer
   "  Plug 'scrooloose/syntastic'     " Syntax checker
+  Plug 'tmm1/ripper-tags'         " Improved Ruby ctags generator
   "Plug 'tpope/vim-bundler'        " Bundler goodness
   "Plug 'tpope/vim-endwise'        " Auto close methods
   Plug 'tpope/vim-fugitive'       " git goodness
@@ -64,8 +65,10 @@ set backupdir=.~/.vim/tmp,/tmp     " Changes ~ location
 set directory=~/.vim/tmp,/tmp      " Changes swp location
 
 " Ctags ************************************************************************
-" Regenerates tags
-map <leader>ct :!ctags -R --languages=ruby --exclude=.git --exclude=log .
+set tags=.tags
+
+" Regenerate tags
+map <leader>ct :!ripper-tags -f .tags -R --exclude=vendor<cr>
 " Follows the method call
 map <leader>f <C-]>
 
