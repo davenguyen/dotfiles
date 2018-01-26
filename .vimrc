@@ -100,10 +100,6 @@ function SearchSelected()
 endfunction
 :vnoremap g/ <ESC>:call SearchSelected()<cr>
 
-
-" show cwindow after running Ggrep
-autocmd QuickFixCmdPost *grep* cwindow
-
 " Easy Align *******************************************************************
 xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
@@ -112,27 +108,27 @@ nmap <leader>a <Plug>(EasyAlign)
 nmap <silent> <unique> <leader>n :NERDTreeToggle<cr>
 
 " Git **************************************************************************
-nmap <silent> <unique> <leader>m :Merginal<cr>
-"autocmd BufReadPost fugitive://* set bufhidden=delete
-"autocmd BufReadPost *.fugitiveblame set bufhidden=delete
-"autocmd BufReadPost .git/* set bufhidden=delete
-"autocmd BufReadPost GoToFile set bufhidden=delete
+nnoremap <leader>ga  :Gcommit --amend<cr>
+nnoremap <leader>gb  :MerginalToggle<cr>
+nnoremap <leader>gc  :Gcommit<cr>
+nnoremap <leader>gd  :Gdiff<cr>
+nnoremap <leader>gg  :Gstatus<cr>
+nnoremap <leader>gl  :Glog -- %<cr><cr>
+nnoremap <leader>gr  :Git rebase -i HEAD~
+nnoremap <leader>gra :Git rebase --abort<cr>
+nnoremap <leader>grc :Git rebase --continue<cr>
+nnoremap <leader>gs  :Git stash<cr>
+nnoremap <leader>gsa :Git stash apply<cr>
+nnoremap <leader>gsd :Git stash drop<cr>
 
-"nnoremap <silent> <leader>gd :Gdiff<cr>
-"nnoremap <silent> <leader>gs :Gstatus<cr>
-"nnoremap <silent> <leader>gs :Gstatus<cr><C-w>20+
-""nmap <leader>gs :Gstatus<cr><C-w>20+
-"nnoremap <silent> <leader>gw :Gwrite<cr>
-"nnoremap <silent> <leader>gb :Gblame<cr>
-"nnoremap <silent> <leader>gci :Gcommit<cr>
-"nnoremap <silent> <leader>gm :Gmove<cr>
-"nnoremap <silent> <leader>gr :Gremove<cr>
-"nnoremap <silent> <leader>gl :Glog<cr>
+" show cwindow after running Ggrep
+autocmd QuickFixCmdPost *grep* cwindow
 
-"augroup ft_fugitive
-"  au!
-"  au BufNewFile,BufRead .git/index setlocal nolist
-"augroup END
+" These are already mapped from gitgutter, I just didn't want to forget them
+"[c          " Go to previous hunk
+"]c          " Go to previous hunk
+"<leader>hs  " Save hunk
+"<leader>hu  " Undo hunk
 
 " FZF **************************************************************************
 let g:rg_command = '
