@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'  " Text alignment
   Plug 'scrooloose/nerdtree'      " Better file explorer
   "  Plug 'scrooloose/syntastic'     " Syntax checker
+  Plug 'slim-template/vim-slim'   " Slim goodness
   Plug 'tmm1/ripper-tags'         " Improved Ruby ctags generator
   "Plug 'tpope/vim-bundler'        " Bundler goodness
   "Plug 'tpope/vim-endwise'        " Auto close methods
