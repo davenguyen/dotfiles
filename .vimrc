@@ -140,6 +140,6 @@ let g:rg_command = '
 command! -bang -nargs=* FindWithin call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 nnoremap t :exec 'FZF'<cr>
 
-" Syntastic ****************************************************************
+" Syntastic ********************************************************************
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
