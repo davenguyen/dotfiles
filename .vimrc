@@ -2,6 +2,7 @@ set nocompatible        " Better safe than sorry
 
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'   " Inline git diff
+  Plug 'altercation/vim-colors-solarized' " solarized colorscheme
   Plug 'idanarye/vim-merginal'    " git branching goodness
   Plug 'junegunn/fzf', { 'dir': '~/.dotfiles/.vim/plugin/fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
