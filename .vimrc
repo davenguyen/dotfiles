@@ -56,6 +56,8 @@ set autoindent
 map <leader>r :!ruby %<cr>    " Run scripts easily
 
 " Buffers **********************************************************************
+set hidden                         " hide buffers instead of closing
+
 " Shortcuts to go to next buffer, previous buffer, and delete a buffer
 nmap <tab> :bnext<CR>
 nmap <leader><tab> :bprevious<CR>
@@ -124,6 +126,8 @@ nnoremap <leader>gsd :Git stash drop<cr>
 
 " show cwindow after running Ggrep
 autocmd QuickFixCmdPost *grep* cwindow
+
+" GitGutter ********************************************************************
 
 " These are already mapped from gitgutter, I just didn't want to forget them
 "[c          " Go to previous hunk
