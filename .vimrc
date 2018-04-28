@@ -136,6 +136,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 "<leader>hs  " Save hunk
 "<leader>hu  " Undo hunk
 
+set updatetime=100
+let g:gitgutter_terminal_reports_focus=0
+
 " FZF **************************************************************************
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
