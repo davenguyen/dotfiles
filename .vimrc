@@ -1,12 +1,12 @@
 set nocompatible        " Better safe than sorry
 
 call plug#begin('~/.vim/plugged')
-  Plug 'airblade/vim-gitgutter'   " Inline git diff
   Plug 'altercation/vim-colors-solarized' " solarized colorscheme
   Plug 'idanarye/vim-merginal'    " git branching goodness
   Plug 'junegunn/fzf', { 'dir': '~/.dotfiles/.vim/plugin/fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'  " Text alignment
+  Plug 'mhinz/vim-signify'        " Inline git diff
   Plug 'morhetz/gruvbox' " gruvbox colorscheme
   Plug 'scrooloose/nerdtree'      " Better file explorer
   "  Plug 'scrooloose/syntastic'     " Syntax checker
@@ -129,16 +129,15 @@ nnoremap <leader>gsd :Git stash drop<cr>
 " show cwindow after running Ggrep
 autocmd QuickFixCmdPost *grep* cwindow
 
-" GitGutter ********************************************************************
+" Signify **********************************************************************
 
 " These are already mapped from gitgutter, I just didn't want to forget them
 "[c          " Go to previous hunk
 "]c          " Go to previous hunk
+
+" TODO: This is a feature I miss from gitgutter that I need to get back
 "<leader>hs  " Save hunk
 "<leader>hu  " Undo hunk
-
-set updatetime=100
-let g:gitgutter_terminal_reports_focus=0
 
 " FZF **************************************************************************
 let g:rg_command = '
