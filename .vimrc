@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox' " gruvbox colorscheme
   Plug 'scrooloose/nerdtree'      " Better file explorer
   "  Plug 'scrooloose/syntastic'     " Syntax checker
-  Plug 'slim-template/vim-slim'   " Slim goodness
+  Plug 'slim-template/vim-slim', { 'for': 'slim' }     " Slim goodness
   Plug 'tmm1/ripper-tags'         " Improved Ruby ctags generator
   "Plug 'tpope/vim-bundler'        " Bundler goodness
   "Plug 'tpope/vim-endwise'        " Auto close methods
@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rails'          " Rails goodness
   "Plug 'tpope/vim-vinegar'        " Improve netrw
   Plug 'vim-airline/vim-airline'  " Statusline improvement
-  Plug 'vim-ruby/vim-ruby'        " Ruby goodness
+  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }     " Ruby goodness
 call plug#end()
 
 let mapleader=","
