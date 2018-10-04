@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.dotfiles/.vim/plugin/fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'  " Text alignment
+  Plug 'morhetz/gruvbox' " gruvbox colorscheme
   Plug 'scrooloose/nerdtree'      " Better file explorer
   "  Plug 'scrooloose/syntastic'     " Syntax checker
   Plug 'slim-template/vim-slim'   " Slim goodness

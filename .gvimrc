@@ -1,5 +1,5 @@
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 set guioptions-=m			" No dumb menubar in gvim
 set guioptions-=T			" No dumb toolbar in gvim
