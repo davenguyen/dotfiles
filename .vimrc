@@ -37,6 +37,8 @@ set clipboard=unnamed        " use same clipboard as system
 " delete trailing white space
 au BufWritePre *.coffee :%s/\s\+$//e
 au BufWritePre *.css :%s/\s\+$//e
+au BufWritePre *.ex :%s/\s\+$//e
+au BufWritePre *.exs :%s/\s\+$//e
 au BufWritePre *.haml :%s/\s\+$//e
 au BufWritePre *.html :%s/\s\+$//e
 au BufWritePre *.js :%s/\s\+$//e
@@ -152,3 +154,8 @@ nnoremap t :exec 'FZF'<cr>
 " Syntastic ********************************************************************
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
+
+" Elixir ***********************************************************************
+" Quick access to debugging
+nmap <leader>ed orequire IEx; IEx.pry<esc>
+nmap <leader>eD Orequire IEx; IEx.pry<esc>
